@@ -13,16 +13,16 @@ router.get('/', (req, res) =>{
         console.log(`Error getting details`, error);
         res.sendStatus(500);
     })
-})
+});
 
 
 
 // router.get('/', (req, res) => {
-//     const queryText = 'SELECT * FROM plant';
+//     const queryText = `SELECT * FROM "movies"`;
 //     pool.query(queryText)
 //         .then((result) => { res.send(result.rows); })
 //         .catch((err) => {
-//             console.log('Error completing SELECT plant query', err);
+//             console.log('Error completing SELECT movie query', error);
 //             res.sendStatus(500);
 //         });
 // });

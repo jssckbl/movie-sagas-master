@@ -40,9 +40,3 @@ const putReduxStoreOnProps = (reduxStore) => ({
 })
 
 export default connect(putReduxStoreOnProps)(Home);
-
-
-
-
-// when a movie poster is clicked, user is directed to /details view
-
