@@ -13,29 +13,35 @@ class Details extends Component {
     //     this.props.dispatch({ type: 'GET_PLANT' })
     // }
 
-    render() {
-        return (
-            <div>
-                {/* {this.props.reduxState.plantList.map(plant => {
-                    if (plant.id == this.props.match.params.id) {
-                        return <div>
-                            <h3>{plant.name}</h3>
-                            <p>{plant.kingdom}</p>
-                            <p>{plant.clade}</p>
-                            <p>{plant.order}</p>
-                            <p>{plant.family}</p>
-                            <p>{plant.subfamily}</p>
-                            <p>{plant.genus}</p>
-                        </div>
-                    }
-                })}
-                <Link to='/'><button>Back</button></Link> */}
-
-            </div>
-        );
+    backToListButton = ( event ) => {
+        this.props.history.push('/');
     }
-}
 
+    editButton = ( event ) => {
+        this.props.history.push('/edit');
+    }
+
+    render() {
+
+        let details = this.props.reduxState.details;
+        return (
+            <>
+            <div className="App">
+            <h1>Movie Details</h1>
+            <button onClick={this.backToListButton}type="submit">Back To List</button>
+            <button onClick={this.editButton}type="edit"></button>
+            </div>
+                {/* {this.props.reduxState.movieDetails.map(plant => { */}
+                {/* if (plant.id == this.props.match.params.id) { */}
+            <div>
+            <p className = 'movieTitle'>>{details.name}</p>
+            <p className = 'movieInfo'>{details.description}</p>
+            <p>{details.name}</p>
+            </div>            
+            </>  
+            )
+        }
+        }
 const mapStateToProps = reduxState => ({
     reduxState,
 });
