@@ -1,48 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+// import Edit from '../Edit/Edit';
 
 // show all details, including genres, for selected movie
 
-// backToList button that goes to HomePage
-// edit button, that brings user to EditPage
 
 
 class Details extends Component {
     // componentDidMount = () => {
-    //     this.props.dispatch({ type: 'GET_PLANT' })
+    //     this.props.dispatch({ type: 'GET_DETAILS' })
     // }
 
+// backToList button that goes to HomePage
     backToListButton = ( event ) => {
-        this.props.history.push('/');
+        this.props.history.push('/')
     }
 
+// edit button, that brings user to EditPage
     editButton = ( event ) => {
-        this.props.history.push('/edit');
+        this.props.history.push('/Edit')
     }
 
     render() {
 
-        let details = this.props.reduxState.details;
+        let details = this.props.reduxStore.details;
+
         return (
             <>
-            <div className="App">
+            {/* <div className="App"> */}
             <h1>Movie Details</h1>
             <button onClick={this.backToListButton}type="submit">Back To List</button>
-            <button onClick={this.editButton}type="edit"></button>
-            </div>
-                {/* {this.props.reduxState.movieDetails.map(plant => { */}
+            <button onClick={this.editButton}type="submit">Edit</button>
+            {/* </div> */}
+                {/* {this.props.reduxStore.movieDetails.map(plant => { */}
                 {/* if (plant.id == this.props.match.params.id) { */}
             <div>
-            <p className = 'movieTitle'>>{details.name}</p>
-            <p className = 'movieInfo'>{details.description}</p>
-            <p>{details.name}</p>
+                <p>Details Page</p>
+                <p>{details.title}</p>
+                <p>{details.description}</p>
+                <p>{details.name}</p>
+            {/* <p className = "movieTitle">{details.title}</p>
+            <p className = "movieDescription">{details.description}</p>
+            <p>{details.name}</p> */}
             </div>            
             </>  
-            )
+            );
         }
         }
-const mapStateToProps = reduxState => ({
-    reduxState,
+const putReduxStoreOnProps = (reduxStore) => ({
+    reduxStore,
 });
-export default connect(mapStateToProps)(Details);
+export default connect(putReduxStoreOnProps)(Details);

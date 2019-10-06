@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 // Routes
-import Home from '../Home/Home';
+import List from '../List/List';
 import Details from '../Details/Details';
 import Edit from '../Edit/Edit';
 
@@ -12,19 +12,26 @@ class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
-      <div className="App">
+
+        <div className="App">
         <Router>
-          <Route exact path='/' component={Home} />
-          <Route path='/details/:id' component={Details} />
-          <Route path='/edit/:id' component={Edit} />
+
+          <header><h1>Rad Movies and Other Movies</h1></header>
+
+          <Route path='/' exact component={List} />
+          <Route path='/Details' component={Details} />
+          <Route path='/Edit' component={Edit} />
+          {/* <Route path='/details/:id' component={Details} />
+          <Route path='/edit/:id' component={Edit} /> */}
 
           {/* <Route path='/movieList' component={MovieList} />
           <Route path='/movieItem' component={MovieItem} /> */}
-        </Router>
+                </Router>
 
-      </div>
+        </div>
     );
   }
 }
-
 export default App;
+
+// export default connect()(App);
