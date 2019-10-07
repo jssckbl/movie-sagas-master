@@ -21,18 +21,18 @@ class List extends Component {
             <>
                 {/* <div className="App">
                     <div> */}
-                        <h1>Movie List</h1>
-                        {this.props.storeInstance.movies.map(item => {
-                            return (
-                                // <div className="Container" key={item.id}>
-                                    <div key={item.id}>
-                                    <img onClick={(event) => this.onChange(item)} src={item.poster} alt='' />
-                                    <p className="Title">{item.title}</p>
-                                    <p className="Description">{item.description}</p>
-                                </div>
-                            )
-                        })}
-                    {/* </div>
+                <h1>Movie List</h1>
+                {this.props.storeInstance.movies.map(item => {
+                    return (
+                        // <div className="Container" key={item.id}>
+                        <div key={item.id}>
+                            <img onClick={(event) => this.onChange(item)} src={item.poster} alt='' />
+                            <p className="Title">{item.title}</p>
+                            <p className="Description">{item.description}</p>
+                        </div>
+                    )
+                })}
+                {/* </div>
                 </div> */}
             </>
         );

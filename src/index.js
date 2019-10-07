@@ -22,8 +22,8 @@ function* rootSaga() {
 function* fetchMovies() {
     try {
         const response = yield axios.get('/list');
-        yield put ({ type: 'SET_MOVIES', payload: response.data});
-    } catch ( error ) {
+        yield put({ type: 'SET_MOVIES', payload: response.data });
+    } catch (error) {
         console.log('error getting movie', error);
         alert('could not get movie name at this time. try again later.')
     }
@@ -33,8 +33,8 @@ function* fetchMovies() {
 function* fetchDetails(action) {
     try {
         const response = yield axios.get(`/list/${action.payload}`);
-        yield put ({ type: 'SET_DETAILS', payload: response.data});
-    } catch ( error ) {
+        yield put({ type: 'SET_DETAILS', payload: response.data });
+    } catch (error) {
         console.log('error getting details', error);
         alert('could not get movie details at this time. try again')
     }
@@ -43,7 +43,7 @@ function* fetchDetails(action) {
 function* editMovie(action) {
     try {
         yield axios.put(`/list/update/${action.payload.id}`, action.payload);
-        yield put({ type: 'FETCH_MOVIES'})
+        yield put({ type: 'FETCH_MOVIES' })
     } catch (error) {
         console.log('Error updating movie list', error);
         alert('could not update movie list at this time. try again later');
@@ -67,8 +67,8 @@ const details = (state = {}, action) => {
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;
-            default:
-                return state;
+        default:
+            return state;
     }
 }
 
@@ -96,6 +96,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();

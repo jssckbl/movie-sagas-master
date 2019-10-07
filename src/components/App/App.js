@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
 
-        <div className="App">
+      <div className="App">
         <Router>
 
           <header><h1>Rad Movies and Other Movies</h1></header>
@@ -21,14 +21,10 @@ class App extends Component {
           <Route path='/' exact component={List} />
           <Route path='/Details' component={Details} />
           <Route path='/Edit' component={Edit} />
-          {/* <Route path='/details/:id' component={Details} />
-          <Route path='/edit/:id' component={Edit} /> */}
 
-          {/* <Route path='/movieList' component={MovieList} />
-          <Route path='/movieItem' component={MovieItem} /> */}
         </Router>
 
-        </div>
+      </div>
     );
   }
 }

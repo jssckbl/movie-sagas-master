@@ -1,4 +1,4 @@
-const express = require ('express');
+const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
@@ -9,10 +9,10 @@ router.get('/', (req, res) => {
     pool.query(sqlText)
         .then((response) => {
             res.send(response.rows);
-    }).catch (( error ) => {
-        console.log(`Error getting details`, error);
-        res.sendStatus(500);
-    })
+        }).catch((error) => {
+            console.log(`Error getting details`, error);
+            res.sendStatus(500);
+        })
 });
 
 // GET route for movie details
@@ -26,14 +26,14 @@ router.get('/:id', (req, res) => {
     WHERE "movies"."id" = $1;`;
     const values = [movieId]
     pool.query(sqlText, values)
-    .then( (response) => {
-        console.log( 'This is the response', response );
-        res.send( response.rows[0] );
-    })
-    .catch( ( error ) => {
-        console.log(`Error selecting movie genre`, error );
-        res.sendStatus(500);
-    })
+        .then((response) => {
+            console.log('This is the response', response);
+            res.send(response.rows[0]);
+        })
+        .catch((error) => {
+            console.log(`Error selecting movie genre`, error);
+            res.sendStatus(500);
+        })
 })
 
 router.put('/update/:id', (req, res) => {
@@ -42,13 +42,13 @@ router.put('/update/:id', (req, res) => {
     values = [req.body.name, req.body.description, req.body.id]
     // maybe req.body.id instead of params
     pool.query(sqlText, values)
-    .then(( response ) => {
-        res.sendStatus(200);
-    })
-    .catch(( error ) => {
-        console.log(`error updating movies`, error );
-        res.sendStatus(500);
-    })
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`error updating movies`, error);
+            res.sendStatus(500);
+        })
 })
 
 module.exports = router;
