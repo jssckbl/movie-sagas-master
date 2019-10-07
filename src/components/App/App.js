@@ -26,7 +26,7 @@ class App extends Component {
 
           {/* <Route path='/movieList' component={MovieList} />
           <Route path='/movieItem' component={MovieItem} /> */}
-                </Router>
+        </Router>
 
         </div>
     );

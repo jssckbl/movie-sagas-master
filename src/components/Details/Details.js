@@ -24,7 +24,7 @@ class Details extends Component {
 
     render() {
 
-        let details = this.props.reduxStore.details;
+        let details = this.props.storeInstance.details;
 
         return (
             <>
@@ -48,7 +48,7 @@ class Details extends Component {
             );
         }
         }
-const putReduxStoreOnProps = (reduxStore) => ({
-    reduxStore,
+const storeInstanceOnProps = (storeInstance) => ({
+    storeInstance,
 });
-export default connect(putReduxStoreOnProps)(Details);
+export default connect(storeInstanceOnProps)(Details);

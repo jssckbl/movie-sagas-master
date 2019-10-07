@@ -23,9 +23,10 @@ class List extends Component {
                 {/* <div className="App">
                     <div> */}
                         <h1>Movie List</h1>
-                        {this.props.reduxStore.movies.map(item => {
+                        {this.props.storeInstance.movies.map(item => {
                             return (
-                                <div className="Container" key={item.id}>
+                                // <div className="Container" key={item.id}>
+                                    <div key={item.id}>
                                     <img onClick={(event) => this.onChange(item)} src={item.poster} alt='' />
                                     <p className="Title">{item.title}</p>
                                     <p className="Description">{item.description}</p>
@@ -40,8 +41,8 @@ class List extends Component {
 }
 
 
-const putReduxStoreOnProps = (reduxStore) => ({
-    reduxStore
+const storeInstanceOnProps = (storeInstance) => ({
+    storeInstance
 })
 
-export default connect(putReduxStoreOnProps)(List);
+export default connect(storeInstanceOnProps)(List);

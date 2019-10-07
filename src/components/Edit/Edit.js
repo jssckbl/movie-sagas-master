@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 
 class Edit extends Component {
     state = {
-        id: this.props.reduxStore.details.id,
+        id: this.props.storeInstance.details.id,
         name: '',
         description: '', 
     }
@@ -30,10 +30,10 @@ class Edit extends Component {
         this.props.history.push('/Details')
     }
 
-    // saveButton = (event) => {
-    //     this.props.history.push('/')
-    //     this.props.dispatch( { type: 'EDIT_LIST', payload: this.state})
-    // }
+    saveButton = (event) => {
+        this.props.history.push('/Details')
+        this.props.dispatch( { type: 'EDIT_MOVIE', payload: this.state})
+    }
 
     handleNameChange = (propertyName, event) => {
         console.log('event happened')
@@ -67,13 +67,14 @@ class Edit extends Component {
             // <div className = "App">
             <>
                 <h1>Edit Movie Title and Description</h1>
+                
                 <input type="text" value={this.state.name}
                 onChange= { (event) => this.handleNameChange('name', event)}
                 placeholder="Movie Title"></input>
 
-                <input type="text" value={this.state.description}
+                <textarea type="text" value={this.state.description}
                 onChange= { (event) => this.handleNameChange('description', event)}
-                placeholder="Description"></input>
+                placeholder="Description"></textarea>
 
                 <button onClick={this.cancelButton}type="submit">Cancel</button>
                 <button onClick={this.saveButton}type="submit">Save</button>
@@ -83,19 +84,9 @@ class Edit extends Component {
     }
 }
 
-const putReduxStoreOnProps = (reduxStore) => ({
-    reduxStore,
+const storeInstanceOnProps = (storeInstance) => ({
+    storeInstance,
 });
 
 
-export default connect(putReduxStoreOnProps)(Edit);
-
-
-
-{/* <h3>This is the form</h3>
-    <form onSubmit={this.addNewMovie}>
-        <input type='text' placeholder="Movie Title" value={this.state.updateMovie.name} onChange={(event) => this.handleNameChange(event, 'name')} />
-        <textarea type='text' placeholder="Movie Description" value={this.state.updateMovie.description} onChange={(event) => this.handleNameChange(event, 'description')} />
-
-        <input type='submit' value='Add Updated Movie' />
-    </form> */}
+export default connect(storeInstanceOnProps)(Edit);
