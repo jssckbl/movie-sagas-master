@@ -1,10 +1,3 @@
-
-// input field (for changing movie title) for selected movie
-// text area for changing movie description
-// cancel button that brings user to the DetailsPage
-// save button that updates title and description in DB
-// bring the user to the Details Page
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -16,20 +9,14 @@ class Edit extends Component {
         description: '', 
     }
 
-    // state = {
-    //     updateMovie: {
-    //         name: '',
-    //         description: '',
-
-    //     }
-    // }
-
+// cancel button that brings user to Details
     cancelButton = (event) => {
         // event.preventDefault();
         // this.props.dispatch({ type: 'UPDATE_MOVIE', payload: this.state.updateMovie})
         this.props.history.push('/Details')
     }
 
+// save button that updates title and description in database
     saveButton = (event) => {
         this.props.history.push('/Details')
         this.props.dispatch( { type: 'EDIT_MOVIE', payload: this.state})
@@ -67,11 +54,13 @@ class Edit extends Component {
             // <div className = "App">
             <>
                 <h1>Edit Movie Title and Description</h1>
-                
+
+{/* input field for changing movie title for selected movie */}
                 <input type="text" value={this.state.name}
                 onChange= { (event) => this.handleNameChange('name', event)}
                 placeholder="Movie Title"></input>
 
+{/* text area for changing movie description */}
                 <textarea type="text" value={this.state.description}
                 onChange= { (event) => this.handleNameChange('description', event)}
                 placeholder="Description"></textarea>
