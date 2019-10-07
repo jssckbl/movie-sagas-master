@@ -10,11 +10,17 @@ If the user chooses to edit the movie information, they will be directed to an e
 
 ## Built With
 HTML
+
 CSS
+
 JavaScript
+
 React
+
 Redux
+
 Sagas
+
 SQL
 
 ## Author(s)
