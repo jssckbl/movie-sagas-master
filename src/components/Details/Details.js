@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 // import Edit from '../Edit/Edit';
 
-// show all details, including genres, for selected movie
-
-
 
 class Details extends Component {
     // componentDidMount = () => {
@@ -36,6 +33,9 @@ class Details extends Component {
                 {/* {this.props.reduxStore.movieDetails.map(plant => { */}
                 {/* if (plant.id == this.props.match.params.id) { */}
             <div>
+
+{/* show all details, including genres, for selected movie */}
+
                 <p>Details Page</p>
                 <p>{details.title}</p>
                 <p>{details.description}</p>
