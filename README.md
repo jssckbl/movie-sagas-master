@@ -1,9 +1,21 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Movie Sagas
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Movie Sagas provides a list of 14 movies upon page load. Each movie is represented by a movie poster image, title of movie, and a description. When the movie poster image is clicked, the user has an opportunity to either edit the information, or be returned to the list, both options via separate buttons. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/github-finalization-assignment).
+If the user chooses to edit the movie information, they will be directed to an edit page. This allows an input for the Movie Title, and/or a text area for the Description. User has the option to Save or Cancel the edit via separate buttons. If edits are saved, the information will then be updated in the database.
+
+## Built With
+HTML
+CSS
+JavaScript
+React
+Redux
+Sagas
+SQL
+
+## Author(s)
+Jessica Woudsma
